@@ -1,0 +1,144 @@
+footer {
+    background-color: hsl(233, 12%, 13%);
+    .footer-signup {
+        display: flex;
+        gap: 0.5rem;
+        padding-top: 3rem;
+        input {
+            flex: 4 1 0;
+            min-width: 0;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 20px;
+            background-color: hsl(0, 0%, 98%);
+            color: hsl(233, 12%, 13%);
+            outline: none;
+            &::placeholder {
+                padding-left: 0.5rem;
+            }
+        }
+        button {
+            flex: 1 0 0;
+            padding: 0.8rem 0.4rem;
+            border: none;
+            border-radius: 20px;
+            background-color: hsl(12, 88%, 59%);
+            color: white;
+            cursor: pointer;
+        }
+    }
+    ul {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(4, auto);
+        grid-auto-flow: column;
+        text-align: center;
+        gap: 1rem 1.5rem;
+        margin: 2.5rem 0;
+        padding: 0;
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    .footer-socials {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(1rem, 6vw, 2rem);
+        margin-block: 2.5rem;
+        img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .footer-logo {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1.5rem;
+    }
+    .footer-copyright {
+        text-align: center;
+    }
+    .footer-copyright p{
+        margin-bottom: 0;
+        padding-bottom: 2rem;
+    }
+}
+// Keep the original mobile order while grouping related desktop content.
+footer {
+    display: flex;
+    flex-direction: column;
+    .footer-brand,
+    .footer-subscribe {
+        display: contents;
+    }
+    .footer-signup { order: 1; }
+    .footer-links { order: 2; }
+    .footer-socials { order: 3; }
+    .footer-logo { order: 4; }
+    .footer-copyright { order: 5; }
+}
+
+@media (min-width: 1024px) {
+    body > footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: clamp(1.5rem, 3vw, 3rem);
+        padding-block: 3rem;
+        .footer-brand,
+        .footer-subscribe {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 0;
+        }
+        .footer-brand {
+            order: 1;
+            flex: 0 0 146px;
+        }
+        .footer-logo {
+            order: 0;
+            justify-content: flex-start;
+            padding: 0;
+        }
+        .footer-socials {
+            order: 1;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin: 2rem 0 0;
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        .footer-links {
+            flex: 1 1 0;
+            min-width: 0;
+            ul {
+                text-align: start;
+                margin: 0;
+                grid-template-columns: repeat(2, max-content);
+                justify-content: center;
+                column-gap: 3.5rem;
+            }
+        }
+        .footer-subscribe {
+            order: 3;
+            flex: 0 1 300px;
+        }
+        .footer-signup {
+            padding-top: 0;
+        }
+        .footer-copyright {
+            text-align: right;
+            p {
+                font-size: 0.75rem;
+                margin: 2rem 0 0;
+                padding: 0;
+            }
+        }
+    }
+}

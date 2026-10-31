@@ -1,0 +1,293 @@
+html {
+    overflow-x: hidden;
+}
+* {
+    box-sizing: border-box;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+body {
+    width: 100%;
+    margin: 0;
+    padding-inline: 5%;
+    overflow-x: hidden;
+    main {
+        #illustration-img-cont img{
+            width: 100%;
+        }
+        p {
+            font-size:14px;
+            line-height: 2em;
+
+            @media (min-width: 768px) {
+                font-size: 12px;
+            }
+        }
+        #sec-one,
+        #sec-two,
+        #sec-four,
+        #sec-five{
+            text-align: center;
+        }
+        #sec-one {
+            position: relative;
+            @media (max-width: 767.98px) {
+                margin-inline: -1rem;
+                > div {
+                    margin-inline: auto;
+                }
+            }
+            div + div {
+                width: calc(100% - 2rem);
+                margin: auto;
+            }
+            @media (min-width: 768px) {
+                display: flex;
+                flex-direction: row-reverse;
+                margin: 3rem 0;
+                div + div {
+                    width:70%;
+                    text-align: start;
+                }
+            }
+            @media (min-width: 1024px) {
+                h1 {
+                    font-size: 2.25rem;
+                    line-height: 1.2;
+                }
+                p {
+                    font-size: 1rem;
+                    line-height: 1.7;
+                }
+            }
+            .bg-pattern-two {
+                position: absolute;
+                width: calc(min(88vw, 330px) - 16px);
+                max-width: none;
+                height: auto;
+                bottom: calc(max(-45px, -12vw) + 30px);
+                right: calc(max(-220px, -58.667vw) + 18px);
+                z-index: -1;
+            }
+        }
+        #sec-two {
+            margin: auto;
+            > div:first-child {
+                width: 100%;
+                max-width: 46ch;
+                margin-inline: auto;
+                text-align: center;
+            }
+            font-size: 16px;
+            @media (min-width: 768px) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            h2 {
+                margin:auto;
+                margin-top: 1rem;
+                line-height: 1.5em;
+            }
+            p {
+                margin-bottom: 3rem;
+            }
+            #sec-three {
+                width: 100%;
+                text-align: start;
+                & > div {
+                    margin-bottom: 2rem;
+                }
+                div > div {
+                    display: flex;
+                    align-items: center;
+                    p {
+                        position: relative;
+                        z-index: 1;
+                        color: white;
+                        font-weight: 700;
+                        background-color: hsl(12, 88%, 59%);
+                        border-radius: 15px;
+                        flex: 0 0 50px;
+                        margin: 0;
+                        width: 50px;
+                        height: 30px;
+                        text-align: center;
+                        padding-right: 5px;
+                    }
+                    h3 {
+                        flex: 1;
+                        min-width: 0;
+                        margin: 0;
+                        margin-right: -5vw;
+                        padding: 0.5rem calc(0.5rem + 5vw) 0.5rem 0.5rem;
+                        background-color: #fff0ec;
+                        box-shadow: -15px 0 0 #fff0ec;
+                        font-size: 12px;
+                    }
+                }
+            }
+            @media (min-width: 1024px) {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: clamp(2rem, 6vw, 6rem);
+                align-items: start;
+                text-align: start;
+                h2 {
+                    font-size: 1.75rem;
+                    line-height: 1.3;
+                }
+                p {
+                    font-size: 1rem;
+                    line-height: 1.7;
+                }
+                > div:first-child {
+                    width: 100%;
+                    margin: 0 auto;
+                    text-align: start;
+                }
+                #sec-three {
+                    min-width: 0;
+                    p {
+                        margin-top: 0;
+                    }
+                    div > div p {
+                        font-size: 0.875rem;
+                        line-height: 30px;
+                    }
+                    div > div h3 {
+                        font-size: 1rem;
+                        margin-right: 0;
+                        padding-right: 0;
+                        background-color: transparent;
+                        box-shadow: none;
+                    }
+                    > div > p {
+                        margin-left: calc(50px + 0.5rem);
+                    }
+                }
+            }
+        }
+        #sec-five {
+            padding: 1.5rem;
+            background-color: hsl(12, 88%, 59%);
+            h3 {
+                color: white;
+                font-size: 2rem;
+                width: 95%;
+                margin: 1remauto;
+            }
+            button {
+                background-color: white;
+                color: hsl(12, 88%, 59%);
+            }
+            @media (min-width: 1024px) {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 2rem;
+                padding-block: 3rem;
+                text-align: start;
+                h3 {
+                    font-size: 1.75rem;
+                    width: auto;
+                    max-width: 22ch;
+                    margin: 0;
+                }
+                .button {
+                    flex-shrink: 0;
+                    margin: 0;
+                }
+            }
+        }
+        .button {
+            margin-bottom: 3rem;
+        }
+    }
+}
+body main #sec-five,
+body > footer {
+    margin-inline: -5vw;
+    padding-inline: 5vw;
+}
+
+#sec-four {
+    .testimonials-slider {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        margin-block: 2rem 1rem;
+        padding-bottom: 1rem;
+        &:focus-visible {
+            outline: 2px solid hsl(12, 88%, 59%);
+            outline-offset: 4px;
+        }
+    }
+    .testimonial-card {
+        flex: 0 0 100%;
+        min-width: 0;
+        scroll-snap-align: start;
+        padding: 1.5rem;
+        background-color: hsl(0, 0%, 98%);
+        img {
+            width: 72px;
+            height: 72px;
+        }
+    }
+    .slider-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 3rem;
+        button {
+            border-radius:50%;
+            width: 14px;
+            height: 14px;
+            border: 1px solid hsl(12, 88%, 59%);
+            padding:0;
+            background-color:  transparent;
+        }
+        .active {
+            background-color: hsl(12, 88%, 59%);
+        }
+    }
+    @media (min-width: 1024px) {
+        .testimonial-card {
+            flex-basis: calc((100% - 2rem) / 3);
+        }
+        .slider-dots {
+            display: none;
+        }
+    }
+}
+
+
+.button {
+    background-color: hsl(12, 88%, 59%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  body main #sec-five {
+    padding-inline: 10vw;
+  }
+}
+
+@media (min-width: 1024px) {
+    body main #sec-four p {
+        font-size: 0.6875rem;
+        line-height: 1.6;
+    }
+    body main #sec-four > .button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.75rem;
+        margin-bottom: 5.5rem;
+    }
+}

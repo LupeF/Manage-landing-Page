@@ -1,0 +1,89 @@
+// Large-screen sizing, kept separate from the mobile and tablet layouts.
+@media (min-width: 1400px) {
+    body {
+        --page-gutter: max(5vw, calc((100vw - 1110px) / 2));
+        padding-inline: var(--page-gutter);
+    }
+    body > nav {
+        padding-block: 3rem;
+    }
+    nav #modal-container ul {
+        font-size: 0.875rem;
+        gap: 1.5rem;
+    }
+    body main #sec-one {
+        gap: 4rem;
+        margin-block: 4rem 7rem;
+        align-items: center;
+    }
+    body main #sec-one > div {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+    body main #sec-one > div + div {
+        width: auto;
+        margin: 0;
+    }
+    body main #sec-one h1 {
+        font-size: 3.5rem;
+        line-height: 1.15;
+        max-width: 16ch;
+        margin-top: 0;
+    }
+    body main #sec-one p {
+        max-width: 36ch;
+        margin-block: 1.5rem 2rem;
+    }
+    body main #sec-one p,
+    body main #sec-two p {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+    body main #sec-two {
+        gap: 5rem;
+    }
+    body main #sec-two > div:first-child {
+        margin-inline: 0;
+    }
+    body main #sec-two h2,
+    body main #sec-four h2 {
+        font-size: 2.5rem;
+        line-height: 1.25;
+    }
+    body main #sec-two #sec-three div > div p {
+        font-size: 0.875rem;
+        line-height: 30px;
+    }
+    body main #sec-two #sec-three div > div h3 {
+        font-size: 1rem;
+    }
+    body main #sec-four {
+        margin-top: 5rem;
+    }
+    body main #sec-four .testimonial-card {
+        padding: 2rem 1.5rem;
+    }
+    body main #sec-four p {
+        font-size: 0.875rem;
+        line-height: 1.75;
+    }
+    body main #sec-four h3 {
+        font-size: 1rem;
+    }
+    body main #sec-five,
+    body > footer {
+        margin-inline: calc(-1 * var(--page-gutter));
+        padding-inline: var(--page-gutter);
+        padding-block: 4rem;
+    }
+    body main #sec-five h3 {
+        font-size: 2.25rem;
+        line-height: 1.25;
+    }
+    body > footer .footer-links {
+        font-size: 0.875rem;
+    }
+    body > footer .footer-subscribe {
+        flex-basis: 320px;
+    }
+}
