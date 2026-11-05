@@ -14,6 +14,20 @@ body {
     padding-inline: 5%;
     overflow-x: hidden;
     main {
+        a,
+        button {
+            cursor: pointer;
+            transition: color 180ms ease, background-color 180ms ease, opacity 180ms ease, filter 180ms ease;
+            @media (prefers-reduced-motion: reduce) {
+                transition: none;
+            }
+        }
+        a:hover {
+            opacity: 0.7;
+        }
+        button:hover {
+            filter: brightness(1.08);
+        }
         #illustration-img-cont img{
             width: 100%;
         }
@@ -70,6 +84,33 @@ body {
                 bottom: calc(max(-45px, -12vw) + 30px);
                 right: calc(max(-220px, -58.667vw) + 18px);
                 z-index: -1;
+            }
+            @media (min-width: 1400px) {
+                gap: 4rem;
+                margin-block: 4rem 7rem;
+                align-items: center;
+                > div {
+                    flex: 1 1 0;
+                    min-width: 0;
+                }
+                > div + div {
+                    width: auto;
+                    margin: 0;
+                }
+                h1 {
+                    font-size: 3.5rem;
+                    line-height: 1.15;
+                    max-width: 16ch;
+                    margin-top: 0;
+                }
+                p {
+                    max-width: 36ch;
+                    margin-block: 1.5rem 2rem;
+                }
+                p {
+                    font-size: 1rem;
+                    line-height: 1.75;
+                }
             }
         }
         #sec-two {
@@ -169,9 +210,35 @@ body {
                     }
                 }
             }
+            @media (min-width: 1400px) {
+                p {
+                    font-size: 1rem;
+                    line-height: 1.75;
+                }
+                gap: 5rem;
+                > div:first-child {
+                    margin-inline: 0;
+                }
+                h2 {
+                    font-size: 2.5rem;
+                    line-height: 1.25;
+                }
+                #sec-three div > div p {
+                    font-size: 0.875rem;
+                    line-height: 30px;
+                }
+                #sec-three div > div h3 {
+                    font-size: 1rem;
+                }
+            }
         }
         #sec-five {
+            margin-inline: -5vw;
+            .button:hover {
+                background-color: #fff0ec;
+            }
             padding: 1.5rem;
+            padding-inline: 5vw;
             background-color: hsl(12, 88%, 59%);
             h3 {
                 color: white;
@@ -184,6 +251,7 @@ body {
                 color: hsl(12, 88%, 59%);
             }
             @media (min-width: 1024px) {
+                padding-inline: 10vw;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -201,69 +269,112 @@ body {
                     margin: 0;
                 }
             }
+            @media (min-width: 1400px) {
+                margin-inline: calc(-1 * var(--page-gutter));
+                padding-inline: var(--page-gutter);
+                padding-block: 4rem;
+                h3 {
+                    font-size: 2.25rem;
+                    line-height: 1.25;
+                }
+            }
         }
         .button {
+            &:hover {
+                background-color: #f98f75;
+            }
             margin-bottom: 3rem;
         }
-    }
-}
-body main #sec-five,
-body > footer {
-    margin-inline: -5vw;
-    padding-inline: 5vw;
-}
+        #sec-four {
+            .testimonials-slider {
+                display: flex;
+                gap: 1rem;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                margin-block: 2rem 1rem;
+                padding-bottom: 1rem;
+                &:focus-visible {
+                    outline: 2px solid hsl(12, 88%, 59%);
+                    outline-offset: 4px;
+                }
+            }
+            .testimonial-card {
+                flex: 0 0 100%;
+                min-width: 0;
+                scroll-snap-align: start;
+                padding: 1.5rem;
+                background-color: hsl(0, 0%, 98%);
+                img {
+                    width: 72px;
+                    height: 72px;
+                }
+            }
+            .slider-dots {
+                display: flex;
+                justify-content: center;
+                gap: 0.5rem;
+                margin-bottom: 3rem;
+                button {
+                    border-radius:50%;
+                    width: 14px;
+                    height: 14px;
+                    border: 1px solid hsl(12, 88%, 59%);
+                    padding:0;
+                    background-color:  transparent;
+                    &:hover {
+                        background-color: #fff0ec;
+                    }
+                    &.active:hover {
+                        background-color: #f98f75;
+                    }
+                }
+                .active {
+                    background-color: hsl(12, 88%, 59%);
+                }
+            }
+            @media (min-width: 1024px) {
+                .testimonial-card {
+                    flex-basis: calc((100% - 2rem) / 3);
+                }
+                .slider-dots {
+                    display: none;
+                }
+                p {
+                    font-size: 0.6875rem;
+                    line-height: 1.6;
+                }
+                > .button {
+                    padding: 0.75rem 1.25rem;
+                    font-size: 0.75rem;
+                    margin-bottom: 5.5rem;
+                }
+            }
+            @media (min-width: 1400px) {
+                h2 {
+                    font-size: 2.5rem;
+                    line-height: 1.25;
+                }
+                margin-top: 5rem;
+                .testimonial-card {
+                    padding: 2rem 1.5rem;
+                }
+                p {
+                    font-size: 0.875rem;
+                    line-height: 1.75;
+                }
+                h3 {
+                    font-size: 1rem;
+                }
+            }
+        }
 
-#sec-four {
-    .testimonials-slider {
-        display: flex;
-        gap: 1rem;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        margin-block: 2rem 1rem;
-        padding-bottom: 1rem;
-        &:focus-visible {
-            outline: 2px solid hsl(12, 88%, 59%);
-            outline-offset: 4px;
-        }
     }
-    .testimonial-card {
-        flex: 0 0 100%;
-        min-width: 0;
-        scroll-snap-align: start;
-        padding: 1.5rem;
-        background-color: hsl(0, 0%, 98%);
-        img {
-            width: 72px;
-            height: 72px;
-        }
-    }
-    .slider-dots {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-bottom: 3rem;
-        button {
-            border-radius:50%;
-            width: 14px;
-            height: 14px;
-            border: 1px solid hsl(12, 88%, 59%);
-            padding:0;
-            background-color:  transparent;
-        }
-        .active {
-            background-color: hsl(12, 88%, 59%);
-        }
-    }
-    @media (min-width: 1024px) {
-        .testimonial-card {
-            flex-basis: calc((100% - 2rem) / 3);
-        }
-        .slider-dots {
-            display: none;
-        }
+
+    @media (min-width: 1400px) {
+        --page-gutter: max(5vw, calc((100vw - 1110px) / 2));
+        padding-inline: var(--page-gutter);
     }
 }
-
 
 .button {
     background-color: hsl(12, 88%, 59%);
@@ -272,22 +383,4 @@ body > footer {
     border-radius: 20px;
     padding: 1rem 2rem;
     cursor: pointer;
-}
-
-@media (min-width: 1024px) {
-  body main #sec-five {
-    padding-inline: 10vw;
-  }
-}
-
-@media (min-width: 1024px) {
-    body main #sec-four p {
-        font-size: 0.6875rem;
-        line-height: 1.6;
-    }
-    body main #sec-four > .button {
-        padding: 0.75rem 1.25rem;
-        font-size: 0.75rem;
-        margin-bottom: 5.5rem;
-    }
 }

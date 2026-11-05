@@ -5,7 +5,13 @@ const modal = document.getElementById('modal-container');
 const testimonialContainer = document.querySelector('.testimonials-slider');
 const testimonialCards = document.querySelectorAll('.testimonials-slider .testimonial-card');
 const sliderDots = document.querySelector('.slider-dots');
+const emailInput = document.getElementById('email-input');
+const errorMessage = document.getElementById('error-message');
+const goButton = document.getElementById('go-button');
+//* Email Validation Function */
+const emailValidation = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
 
+//* Toggle Menu
 openMenuButton.addEventListener('click', () => {
   openMenuButton.hidden = true;
   closeMenuButton.hidden = false;
@@ -23,6 +29,7 @@ closeMenuButton.addEventListener('click', () => {
   button.setAttribute('aria-label', 'Open Menu');// Set the aria-label for accessibility
 });
 
+//* Testimonial Slider Dots */
 testimonialCards.forEach((card, index) =>{
   const button = document.createElement('button'); // Create a new button element for the slider dot
   button.classList.add('slider-dot'); // Add the slider-dot class to the button
@@ -47,6 +54,7 @@ testimonialCards.forEach((card, index) =>{
   })
 })
 
+//** Testimonial Slider */
 testimonialContainer.addEventListener('scroll', () => { // Adds scroll event listener to the testimonial container
   const slideDistance =
     testimonialCards[1].offsetLeft - testimonialCards[0].offsetLeft;
@@ -64,4 +72,21 @@ testimonialContainer.addEventListener('scroll', () => { // Adds scroll event lis
       sliderDot.setAttribute('aria-current', 'false');
     }
   })
+});
+
+//* Error Message Function */
+const showErrorMessage = (validator) => {
+  emailInput.setAttribute('aria-invalid', String(!validator));
+  if (!validator) {
+    errorMessage.innerHTML = `<p>Please provide a valid email</p>`;
+    errorMessage.classList.add('error-message');
+  } else {
+    errorMessage.textContent = '';
+    errorMessage.classList.remove('error-message');
+  }
+}
+
+goButton.addEventListener('click', (event) => {
+  event.preventDefault(); // Prevent the default form submission behavior
+  showErrorMessage(emailValidation()); // Call the showErrorMessage function with the result of emailValidation
 });

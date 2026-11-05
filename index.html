@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900" rel="stylesheet">
   <title>Frontend Mentor | Manage landing page</title>
 </head>
 <body>
@@ -15,7 +16,6 @@
     <img src="images/logo.svg" alt="Manage Logo">
   </div>
   <div id="modal-container">
-    <!-- <img src="images/icon-close.svg" alt="Close Menu" id="close-menu">  -->
     <ul>
       <li><a href="#">Pricing</a></li>
       <li><a href="#">Product</a></li>
@@ -151,8 +151,11 @@
   </div>
   <div class="footer-subscribe">
     <div class="footer-signup">
-      <input type="text" placeholder="Updates in your inbox…">
-      <button>Go</button>
+      <div class="footer-email-field">
+        <input type="text" id="email-input" placeholder="Updates in your inbox…" aria-describedby="error-message">
+        <div id="error-message" aria-live="polite"></div>
+      </div>
+      <button id="go-button">Go</button>
     </div>
     <div class="footer-copyright">
       <p>Copyright 2020. All Rights Reserved</p>

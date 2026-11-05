@@ -1,11 +1,41 @@
 footer {
+    margin-inline: -5vw;
+    padding-inline: 5vw;
     background-color: hsl(233, 12%, 13%);
+    display: flex;
+    flex-direction: column;
+    a,
+    button {
+        cursor: pointer;
+        transition: color 180ms ease, background-color 180ms ease, opacity 180ms ease, filter 180ms ease;
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
+    }
+    button:hover {
+        filter: brightness(1.08);
+    }
+    .footer-brand,
+    .footer-subscribe {
+        display: contents;
+    }
+    .footer-signup { order: 1; }
+    .footer-links { order: 2; }
+    .footer-socials { order: 3; }
+    .footer-logo { order: 4; }
+    .footer-copyright { order: 5; }
     .footer-signup {
         display: flex;
+        align-items: flex-start;
         gap: 0.5rem;
         padding-top: 3rem;
-        input {
+        .footer-email-field {
             flex: 4 1 0;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        input {
             min-width: 0;
             padding: 0.8rem;
             border: none;
@@ -13,6 +43,9 @@ footer {
             background-color: hsl(0, 0%, 98%);
             color: hsl(233, 12%, 13%);
             outline: none;
+            &[aria-invalid="true"] {
+                color: hsl(0, 75%, 55%);
+            }
             &::placeholder {
                 padding-left: 0.5rem;
             }
@@ -25,6 +58,9 @@ footer {
             background-color: hsl(12, 88%, 59%);
             color: white;
             cursor: pointer;
+            &:hover {
+                background-color: #f98f75;
+            }
         }
     }
     ul {
@@ -41,6 +77,10 @@ footer {
     a {
         text-decoration: none;
         color: white;
+        &:hover {
+            color: hsl(12, 88%, 59%);
+            opacity: 1;
+        }
     }
     .footer-socials {
         display: flex;
@@ -49,6 +89,14 @@ footer {
         gap: clamp(1rem, 6vw, 2rem);
         margin-block: 2.5rem;
         img {
+            cursor: pointer;
+            transition: filter 180ms ease;
+            &:hover {
+                filter: brightness(0) saturate(100%) invert(48%) sepia(85%) saturate(1997%) hue-rotate(338deg) brightness(104%) contrast(90%);
+            }
+            @media (prefers-reduced-motion: reduce) {
+                transition: none;
+            }
             width: 24px;
             height: 24px;
         }
@@ -65,79 +113,87 @@ footer {
         margin-bottom: 0;
         padding-bottom: 2rem;
     }
-}
-// Keep the original mobile order while grouping related desktop content.
-footer {
-    display: flex;
-    flex-direction: column;
-    .footer-brand,
-    .footer-subscribe {
-        display: contents;
+    .error-message {
+        color: hsl(0, 75%, 55%);
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        p {
+            margin: 0;
+            color: inherit;
+        }
     }
-    .footer-signup { order: 1; }
-    .footer-links { order: 2; }
-    .footer-socials { order: 3; }
-    .footer-logo { order: 4; }
-    .footer-copyright { order: 5; }
-}
-
-@media (min-width: 1024px) {
-    body > footer {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: stretch;
-        gap: clamp(1.5rem, 3vw, 3rem);
-        padding-block: 3rem;
-        .footer-brand,
-        .footer-subscribe {
-            display: flex;
-            flex-direction: column;
+    @media (min-width: 1024px) {
+        @at-root body > & {
+            flex-direction: row;
             justify-content: space-between;
-            min-width: 0;
-        }
-        .footer-brand {
-            order: 1;
-            flex: 0 0 146px;
-        }
-        .footer-logo {
-            order: 0;
-            justify-content: flex-start;
-            padding: 0;
-        }
-        .footer-socials {
-            order: 1;
-            justify-content: space-between;
-            gap: 0.5rem;
-            margin: 2rem 0 0;
-            img {
-                width: 20px;
-                height: 20px;
+            align-items: stretch;
+            gap: clamp(1.5rem, 3vw, 3rem);
+            padding-block: 3rem;
+            .footer-brand,
+            .footer-subscribe {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                min-width: 0;
             }
-        }
-        .footer-links {
-            flex: 1 1 0;
-            min-width: 0;
-            ul {
-                text-align: start;
-                margin: 0;
-                grid-template-columns: repeat(2, max-content);
-                justify-content: center;
-                column-gap: 3.5rem;
+            .footer-brand {
+                order: 1;
+                flex: 0 0 146px;
             }
-        }
-        .footer-subscribe {
-            order: 3;
-            flex: 0 1 300px;
-        }
-        .footer-signup {
-            padding-top: 0;
-        }
-        .footer-copyright {
-            text-align: right;
-            p {
-                font-size: 0.75rem;
-                margin: 2rem 0 0;
+            .footer-logo {
+                order: 0;
+                justify-content: flex-start;
                 padding: 0;
+            }
+            .footer-socials {
+                order: 1;
+                justify-content: space-between;
+                gap: 0.5rem;
+                margin: 2rem 0 0;
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+            .footer-links {
+                flex: 1 1 0;
+                min-width: 0;
+                ul {
+                    text-align: start;
+                    margin: 0;
+                    grid-template-columns: repeat(2, max-content);
+                    justify-content: center;
+                    column-gap: 3.5rem;
+                }
+            }
+            .footer-subscribe {
+                order: 3;
+                flex: 0 1 300px;
+            }
+            .footer-signup {
+                padding-top: 0;
+            }
+            .footer-copyright {
+                text-align: right;
+                p {
+                    font-size: 0.75rem;
+                    margin: 2rem 0 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1400px) {
+        @at-root body > & {
+            margin-inline: calc(-1 * var(--page-gutter));
+            padding-inline: var(--page-gutter);
+            padding-block: 4rem;
+            .footer-links {
+                font-size: 0.875rem;
+            }
+            .footer-subscribe {
+                flex-basis: 320px;
             }
         }
     }

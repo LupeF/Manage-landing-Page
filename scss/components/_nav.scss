@@ -6,6 +6,15 @@ nav {
     position: relative;
     font-weight: 700;
 
+    a,
+    button {
+        cursor: pointer;
+        transition: color 180ms ease, background-color 180ms ease, opacity 180ms ease, filter 180ms ease;
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
+    }
+
     > div:first-child {
         display: flex;
         align-items: center;
@@ -45,21 +54,29 @@ nav {
             top: 10%;
             border-radius:5px;
             li {
-                padding-right: 1.5rem;      
+                padding-right: 1.5rem;
                 margin-bottom: 1rem;
-                
+
             }
-        }   
+        }
     }
-    a{  
+    a{
         text-decoration: none;
         color: inherit;
+        &:hover {
+            opacity: 0.5;
+        }
     }
     button {
         border: none;
         z-index:5;
         background-color: transparent;
-
+        &:hover {
+            filter: brightness(1.08);
+        }
+    }
+    > button[aria-controls]:hover {
+        opacity: 0.7;
     }
     .bg-pattern{
         position: absolute;
@@ -70,13 +87,14 @@ nav {
         max-width: none;
         height: auto;
     }
-}
-nav .nav-cta {
-    display: none;
-}
+    .nav-cta {
+        display: none;
+        &:hover {
+            background-color: #f98f75;
+        }
+    }
 
-@media (min-width: 768px) {
-    nav {
+    @media (min-width: 768px) {
         display: grid;
         grid-template-columns: auto minmax(0, 1fr) auto;
         gap: 1rem;
@@ -121,6 +139,16 @@ nav .nav-cta {
             background-color: hsl(12, 88%, 59%);
             padding: 0.75rem 1.25rem;
             white-space: nowrap;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        @at-root body > & {
+            padding-block: 3rem;
+        }
+        #modal-container ul {
+            font-size: 0.875rem;
+            gap: 1.5rem;
         }
     }
 }
