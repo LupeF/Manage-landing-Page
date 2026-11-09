@@ -4,6 +4,10 @@
 
 A responsive landing page built for the Manage landing page challenge on Frontend Mentor. The page presents a product overview, key features, customer testimonials, and a newsletter signup area. It includes a mobile navigation menu, a horizontal testimonial slider with navigation dots, and client-side email validation with inline error messages.
 
+## Links
+Live Site: https://lupef.github.io/Manage-landing-Page/
+Repo: https://github.com/LupeF/Manage-landing-Page
+
 ## Technologies used
 
 - **HTML5** for page structure and content.

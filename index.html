@@ -15,7 +15,16 @@
   <div>
     <img src="images/logo.svg" alt="Manage Logo">
   </div>
-  <div id="modal-container">
+  <button
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="modal-container"
+  >
+    <img src="images/icon-hamburger.svg" alt="" class="icon-open">
+    <img src="images/icon-close.svg" alt="" class="icon-close" hidden>
+  </button>
+  <div id="modal-container" class="hide">
     <ul>
       <li><a href="#">Pricing</a></li>
       <li><a href="#">Product</a></li>
@@ -24,15 +33,6 @@
       <li><a href="#">Community</a></li>
     </ul>
   </div>
-  <button
-    type="button"
-    aria-label="Open menu"
-    aria-expanded="false"
-    aria-controls="mobile-menu"
-  >
-    <img src="images/icon-hamburger.svg" alt="" class="icon-open">
-    <img src="images/icon-close.svg" alt="" class="icon-close" hidden>
-  </button>
   <button type="button" class="button nav-cta">Get Started</button>
   <img src="images/bg-tablet-pattern.svg" class="bg-pattern" alt="#">
 </nav>
@@ -150,13 +150,14 @@
     </ul>
   </div>
   <div class="footer-subscribe">
-    <div class="footer-signup">
+    <form class="footer-signup-form" novalidate>
       <div class="footer-email-field">
-        <input type="text" id="email-input" placeholder="Updates in your inbox…" aria-describedby="error-message">
-        <div id="error-message" aria-live="polite"></div>
+        <label class="footer-email-label" for="email-input">Email address</label>
+        <input type="email" name="email" autocomplete="email" required id="email-input" placeholder="Updates in your inbox…" aria-describedby="error-message">
+        <div id="error-message" aria-live="polite"></div> <!-- Error Message -->
       </div>
-      <button id="go-button">Go</button>
-    </div>
+      <button type="submit" id="go-button">Go</button>
+    </form>
     <div class="footer-copyright">
       <p>Copyright 2020. All Rights Reserved</p>
     </div>

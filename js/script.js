@@ -7,27 +7,28 @@ const testimonialCards = document.querySelectorAll('.testimonials-slider .testim
 const sliderDots = document.querySelector('.slider-dots');
 const emailInput = document.getElementById('email-input');
 const errorMessage = document.getElementById('error-message');
-const goButton = document.getElementById('go-button');
+const signupForm = document.querySelector('.footer-signup-form');
 //* Email Validation Function */
 const emailValidation = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
 
 //* Toggle Menu
-openMenuButton.addEventListener('click', () => {
+button.addEventListener('click', () => {
+  if(openMenuButton.hidden === false){ 
   openMenuButton.hidden = true;
   closeMenuButton.hidden = false;
-  modal.style.display = 'flex';
+  // modal.style.display = 'flex';
+  modal.classList.toggle('hide');
   button.setAttribute('aria-expanded', 'true');
   button.setAttribute('aria-label', 'Close Menu');
-
-});
-
-closeMenuButton.addEventListener('click', () => {
+  }else {
   openMenuButton.hidden = false;
   closeMenuButton.hidden = true;
-  modal.style.display = 'none';
-  button.setAttribute('aria-expanded', 'false'); // Set the aria-expanded attribute to false
-  button.setAttribute('aria-label', 'Open Menu');// Set the aria-label for accessibility
+  modal.classList.toggle('hide');
+  button.setAttribute('aria-expanded', 'false');
+  button.setAttribute('aria-label', 'Open Menu');
+  }
 });
+
 
 //* Testimonial Slider Dots */
 testimonialCards.forEach((card, index) =>{
@@ -41,7 +42,7 @@ testimonialCards.forEach((card, index) =>{
 
   }
   button.addEventListener('click', ()=> {
-    card.scrollIntoView({  // Scroll the card into view
+    card.scrollIntoView({  // Scroll the card into view      
       behavior: 'smooth',
       block: 'nearest',
       inline: 'start'
@@ -57,7 +58,7 @@ testimonialCards.forEach((card, index) =>{
 //** Testimonial Slider */
 testimonialContainer.addEventListener('scroll', () => { // Adds scroll event listener to the testimonial container
   const slideDistance =
-    testimonialCards[1].offsetLeft - testimonialCards[0].offsetLeft;
+    testimonialCards[1].offsetLeft - testimonialCards[0].offsetLeft; // Calculate the distance between two testimonial cards
 
   const activeIndex = Math.round(
     testimonialContainer.scrollLeft / slideDistance // Calculate the index of the active testimonial
@@ -86,7 +87,7 @@ const showErrorMessage = (validator) => {
   }
 }
 
-goButton.addEventListener('click', (event) => {
+signupForm.addEventListener('submit', (event) => {
   event.preventDefault(); // Prevent the default form submission behavior
   showErrorMessage(emailValidation()); // Call the showErrorMessage function with the result of emailValidation
 });

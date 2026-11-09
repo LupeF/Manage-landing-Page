@@ -26,7 +26,7 @@ body {
             opacity: 0.7;
         }
         button:hover {
-            filter: brightness(1.08);
+            filter: none;
         }
         #illustration-img-cont img{
             width: 100%;
@@ -149,7 +149,7 @@ body {
                         z-index: 1;
                         color: white;
                         font-weight: 700;
-                        background-color: hsl(12, 88%, 59%);
+                        background-color: #b9381b;
                         border-radius: 15px;
                         flex: 0 0 50px;
                         margin: 0;
@@ -239,16 +239,16 @@ body {
             }
             padding: 1.5rem;
             padding-inline: 5vw;
-            background-color: hsl(12, 88%, 59%);
+            background-color: #b9381b;
             h3 {
                 color: white;
                 font-size: 2rem;
                 width: 95%;
-                margin: 1remauto;
+                margin: 1rem auto;
             }
             button {
                 background-color: white;
-                color: hsl(12, 88%, 59%);
+                color: #b9381b;
             }
             @media (min-width: 1024px) {
                 padding-inline: 10vw;
@@ -281,7 +281,7 @@ body {
         }
         .button {
             &:hover {
-                background-color: #f98f75;
+                background-color: #a83218;
             }
             margin-bottom: 3rem;
         }
@@ -294,7 +294,7 @@ body {
                 margin-block: 2rem 1rem;
                 padding-bottom: 1rem;
                 &:focus-visible {
-                    outline: 2px solid hsl(12, 88%, 59%);
+                    outline: 2px solid #b9381b;
                     outline-offset: 4px;
                 }
             }
@@ -318,18 +318,18 @@ body {
                     border-radius:50%;
                     width: 14px;
                     height: 14px;
-                    border: 1px solid hsl(12, 88%, 59%);
+                    border: 1px solid #b9381b;
                     padding:0;
                     background-color:  transparent;
                     &:hover {
                         background-color: #fff0ec;
                     }
                     &.active:hover {
-                        background-color: #f98f75;
+                        background-color: #a83218;
                     }
                 }
                 .active {
-                    background-color: hsl(12, 88%, 59%);
+                    background-color: #b9381b;
                 }
             }
             @media (min-width: 1024px) {
@@ -377,7 +377,7 @@ body {
 }
 
 .button {
-    background-color: hsl(12, 88%, 59%);
+    background-color: #b9381b;
     color: white;
     border: none;
     border-radius: 20px;

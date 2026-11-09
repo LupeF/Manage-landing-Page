@@ -1,4 +1,7 @@
 footer {
+    p {
+        color: hsl(240, 1%, 72%);
+    }
     margin-inline: -5vw;
     padding-inline: 5vw;
     background-color: hsl(233, 12%, 13%);
@@ -13,18 +16,29 @@ footer {
         }
     }
     button:hover {
-        filter: brightness(1.08);
+        filter: none;
     }
     .footer-brand,
     .footer-subscribe {
         display: contents;
     }
-    .footer-signup { order: 1; }
+    .footer-email-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+    }
+    .footer-signup-form { order: 1; }
     .footer-links { order: 2; }
     .footer-socials { order: 3; }
     .footer-logo { order: 4; }
     .footer-copyright { order: 5; }
-    .footer-signup {
+    .footer-signup-form {
         display: flex;
         align-items: flex-start;
         gap: 0.5rem;
@@ -42,9 +56,8 @@ footer {
             border-radius: 20px;
             background-color: hsl(0, 0%, 98%);
             color: hsl(233, 12%, 13%);
-            outline: none;
             &[aria-invalid="true"] {
-                color: hsl(0, 75%, 55%);
+                color: #b42323;
             }
             &::placeholder {
                 padding-left: 0.5rem;
@@ -55,11 +68,11 @@ footer {
             padding: 0.8rem 0.4rem;
             border: none;
             border-radius: 20px;
-            background-color: hsl(12, 88%, 59%);
+            background-color: #b9381b;
             color: white;
             cursor: pointer;
             &:hover {
-                background-color: #f98f75;
+                background-color: #a83218;
             }
         }
     }
@@ -78,7 +91,7 @@ footer {
         text-decoration: none;
         color: white;
         &:hover {
-            color: hsl(12, 88%, 59%);
+            color: #ff9478;
             opacity: 1;
         }
     }
@@ -114,7 +127,7 @@ footer {
         padding-bottom: 2rem;
     }
     .error-message {
-        color: hsl(0, 75%, 55%);
+        color: #ff8585;
         font-size: 1rem;
         margin-top: 0.5rem;
         p {
@@ -170,7 +183,7 @@ footer {
                 order: 3;
                 flex: 0 1 300px;
             }
-            .footer-signup {
+            .footer-signup-form {
                 padding-top: 0;
             }
             .footer-copyright {
