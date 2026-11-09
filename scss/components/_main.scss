@@ -26,7 +26,7 @@ body {
             opacity: 0.7;
         }
         button:hover {
-            filter: none;
+            filter: brightness(1.08);
         }
         #illustration-img-cont img{
             width: 100%;
@@ -281,7 +281,7 @@ body {
         }
         .button {
             &:hover {
-                background-color: #a83218;
+                background-color: #f98f75;
             }
             margin-bottom: 3rem;
         }
@@ -325,7 +325,7 @@ body {
                         background-color: #fff0ec;
                     }
                     &.active:hover {
-                        background-color: #a83218;
+                        background-color: #f98f75;
                     }
                 }
                 .active {

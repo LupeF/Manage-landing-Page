@@ -16,7 +16,7 @@ footer {
         }
     }
     button:hover {
-        filter: none;
+        filter: brightness(1.08);
     }
     .footer-brand,
     .footer-subscribe {
@@ -72,7 +72,7 @@ footer {
             color: white;
             cursor: pointer;
             &:hover {
-                background-color: #a83218;
+                background-color: #f98f75;
             }
         }
     }
@@ -91,7 +91,7 @@ footer {
         text-decoration: none;
         color: white;
         &:hover {
-            color: #ff9478;
+            color: hsl(12, 88%, 59%);
             opacity: 1;
         }
     }

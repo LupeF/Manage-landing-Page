@@ -83,7 +83,7 @@ nav a {
   color: inherit;
 }
 nav a:hover {
-  opacity: 0.7;
+  opacity: 0.5;
 }
 nav button {
   border: none;
@@ -91,7 +91,7 @@ nav button {
   background-color: transparent;
 }
 nav button:hover {
-  filter: none;
+  filter: brightness(1.08);
 }
 nav > button[aria-controls]:hover {
   opacity: 0.7;
@@ -109,7 +109,7 @@ nav .nav-cta {
   display: none;
 }
 nav .nav-cta:hover {
-  background-color: #a83218;
+  background-color: #f98f75;
 }
 @media (min-width: 768px) {
   nav {
@@ -194,7 +194,7 @@ footer button {
   }
 }
 footer button:hover {
-  filter: none;
+  filter: brightness(1.08);
 }
 footer .footer-brand,
 footer .footer-subscribe {
@@ -262,7 +262,7 @@ footer .footer-signup-form button {
   cursor: pointer;
 }
 footer .footer-signup-form button:hover {
-  background-color: #a83218;
+  background-color: #f98f75;
 }
 footer ul {
   display: grid;
@@ -280,7 +280,7 @@ footer a {
   color: white;
 }
 footer a:hover {
-  color: #ff9478;
+  color: #f25f3a;
   opacity: 1;
 }
 footer .footer-socials {
@@ -434,7 +434,7 @@ body main a:hover {
   opacity: 0.7;
 }
 body main button:hover {
-  filter: none;
+  filter: brightness(1.08);
 }
 body main #illustration-img-cont img {
   width: 100%;
@@ -708,7 +708,7 @@ body main .button {
   margin-bottom: 3rem;
 }
 body main .button:hover {
-  background-color: #a83218;
+  background-color: #f98f75;
 }
 body main #sec-four .testimonials-slider {
   display: flex;
@@ -751,7 +751,7 @@ body main #sec-four .slider-dots button:hover {
   background-color: #fff0ec;
 }
 body main #sec-four .slider-dots button.active:hover {
-  background-color: #a83218;
+  background-color: #f98f75;
 }
 body main #sec-four .slider-dots .active {
   background-color: #b9381b;
